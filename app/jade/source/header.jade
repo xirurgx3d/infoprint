@@ -1,0 +1,67 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset = "utf-8")
+    meta(http-equiv = "X-UA-Compatible", content = "IE=edge")
+    meta(name = "viewport", content = "width=device-width, initial-scale=1")
+    title= "hello"
+    meta(name = "keywords", content = "")
+    meta(name = "description", content = "")
+    
+    link(href = "css/main.css", rel = "stylesheet", type="text/css")
+    link(href = "slick/slick.css", rel = "stylesheet", type="text/css")
+    link(href = "slick/slick-theme.css", rel = "stylesheet", type="text/css")
+    
+    //HTML5 Shim and Respond.js IE8 support of HTML5 elements and media querie
+    //WARNING: Respond.js doesn't work if you view the page via file://
+    //[if lt IE 8]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+  body
+    header
+      .container
+        .header
+          a(href="/").logo
+            img(src="img/logo.jpg")
+          .serch_box
+            form.serch_form
+              input(type="text", name="login", value="",placeholder="Поиск по каталогу...")
+              input(type="submit", value="")
+            .serch_faq
+              span Например: 
+              a(href="") Валл промежуточный КПП(13 зуб)  
+          .call_and_card
+            .call_info
+              .phone +7 (354)
+                span  226-45-45
+              .imc_row
+                img(src="img/call.png").imc_img
+                a(href="").imc_content заказать звонок
+              .imc_row
+                img(src="img/phone.png").imc_img
+                a(href="").imc_content trade@krasparus.ru
+            .basket
+              .imc_row
+                .imc_img.card
+                  a(href="")
+                    img(src="img/card.png")
+                  .count_card 69
+                a(href="").imc_content Корзина
+              span.title Сумма заказа: 
+              span.sell 555 000руб
+          
+      nav
+        .container
+          .menu
+            ul 
+              li
+                a(href="") О компании
+              li
+                a(href="") Продукция
+              li
+                a(href="") Сервис
+              li
+                a(href="") Акции
+              li
+                a(href="") Контакты

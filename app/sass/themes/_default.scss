@@ -1,0 +1,20 @@
+// -----------------------------------------------------------------------------
+// When having several themes, this file contains everything related to the
+// default one.
+// -----------------------------------------------------------------------------
+
+.codex3ds{
+	padding: 1%;
+	border-bottom: 5px solid #8a8a8a;
+	@include span(6 no-gutter);
+	p{
+		hyphens: none;
+	}
+	pre{
+		width: 100%;
+		background-color: mintcream;
+		padding: 20px;
+		border: 1px solid #000035;
+
+	}
+}

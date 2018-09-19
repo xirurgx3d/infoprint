@@ -1,0 +1,37 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+// -- Цветной менеджер
+//  background: color('yellow');  color: color('red', 'shade');
+$colors: (
+  'red': (
+    tint: #f66,
+    base: #c00,
+    shade: #a00
+  )
+);
+
+$sil:#8a8d99;
+$bk:#080c1a;
+$rd:#bf222e;
+$hbl:#212e63;
+$lbl:#405ed8;
+
+
+//-- Шрифты
+$def-font: 'geometria';
+$Gbold: 'geometriabold';
+
+
+
+
+
+
+
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: '../../' !default;

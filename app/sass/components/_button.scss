@@ -1,0 +1,93 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+// генератор кнопки @include button / @include button-colors($welow-buut)
+// создание разных кнопок разного размера
+
+/*
+.button{
+  @include button((
+      font-size:28px,
+  ));
+  @include button-colors($black-buut);
+}
+
+*/
+
+@mixin button-colors($user-butt){
+  background-color: map_get($user-butt,background-color);
+  color: map_get($user-butt,color);
+  @include on-event(){
+    @if map_has_key($user-butt,hover){
+      @each $property, $value in map_get($user-butt,hover){
+        #{$property}: $value
+      }
+      //background-color:map_get(map_get($user-butt,hover),background-color);
+    }
+  }
+  @content;
+}
+
+
+
+
+@mixin button($def-conf:()){
+  $def-conf:extend((
+      display: inline-block,
+      width:$button-widh,
+      height:$button-heading,
+      font:$button-font,
+      font-size:$base-font-size,
+      border: $button-border,
+      radius:$button-radius
+  ),$def-conf);
+  @each $property, $value in $def-conf{
+    #{$property}: $value
+  }
+
+  margin:0;
+  padding: 0;
+  text-align: center;
+  font-weight: bold;
+  line-height: map_get($def-conf,height);
+  //letter-spacing: 4px;
+  text-transform: uppercase;
+  cursor: pointer;
+  @if map_get($def-conf,radius) != none {
+    @include border-radius(map_get($def-conf,radius))
+  };
+  @content
+}
+
+
+
+
+
+
+@mixin bilder_butt($wid,$clr:#bf222e){
+  .butt {
+    display: inline-block;
+    width: $wid;
+    height: 50px;
+    //padding-left: 25%;
+    text-align: center;
+    font: $Gbold;
+    font-weight: bold;
+    line-height: 50px;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #fff;
+    border: none;
+    @include border-radius(5px);
+    background-color: $clr;
+    @include box-shadow(rgba($clr, 0.5) 0px 15px 20px);
+    @include background-image(linear-gradient(to bottom, #cc4e58, #bf232f));
+
+    @if $clr==#222f64{
+      @include background-image(linear-gradient(to bottom, #4d5882, #222f64));
+    }
+    @content;
+  }
+
+}

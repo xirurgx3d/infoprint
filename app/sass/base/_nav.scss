@@ -1,0 +1,74 @@
+/*********************
+VARIABLES
+**********************/
+$link-color:#000;
+$link-hover:#00aedb;
+$link-vertical-padding:5px;      /*Controls Menu top & bottom padding*/
+$link-horizontal-padding:25px;    /*Contols Menu left & right padding*/
+$menu-background: #fff;        /*Control Menu Color Scheme*/
+
+
+
+
+/*********************
+NAVIGATION STYLES
+**********************/
+nav{
+	display: inline-block;
+	width: auto;
+	background-color:$menu-background;
+}
+.menu{
+	ul{
+		width: 100%;
+		@extend %list;
+		@include between;
+		li{
+			width:auto;
+			a{
+				display: block;
+				text-transform: uppercase;
+				color:$link-color;
+				padding-right:$link-vertical-padding;
+				@include on-event(){
+					color:$link-hover;
+				}
+			}
+			&:last-child{
+				a{
+					padding-right: 0;
+				}
+			}
+
+			@include respond-to(small){
+				a{
+					font-size: 14px;
+				}
+			}
+		}
+	}
+
+	.bord{
+		@include flex();
+		li{
+			padding: 5px 20px;
+			@include after{
+				top: 0;
+				right: 0;
+				width: 2px;
+				background-color: #0000cc;
+				height:100%;
+			};
+			&:first-child{
+				padding-left: 0;
+			}
+			&:last-child{
+				padding-right: 0;
+				@include after{
+					display: none;
+				}
+			}
+		}
+	}
+
+}

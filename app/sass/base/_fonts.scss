@@ -1,0 +1,27 @@
+// -----------------------------------------------------------------------------
+// This file contains all @font-face declarations, if any.
+// -----------------------------------------------------------------------------
+
+
+//@include font-face("geometria","#{$base-url}fonts/Geometria.otf");
+@include font-face("geometriabold","#{$base-url}fonts/GeometriaBold.otf");
+@include font-face("Geometria_ExtaBlack","#{$base-url}fonts/Geometria-ExtaBlack.otf");
+@include font-face("Geometria_Light","#{$base-url}fonts/Geometria-Light.otf");
+@include font-face("Geometria_Medium","#{$base-url}fonts/Geometria-Medium.otf");
+@include font-face("Geometria_Thin","#{$base-url}fonts/Geometria-Thin.otf");
+@include font-face("italic","#{$base-url}fonts/Geometria-Italic.otf");
+
+@font-face {
+  font-family: geometria; /* Гарнитура шрифта */
+  src: local(geometria), url(../../fonts/Geometria.otf); /* Для остальных браузеров */
+}
+
+@font-face {
+  font-family: boled; /* Гарнитура шрифта */
+  src: local(boled), url(../../fonts/GeometriaBold.otf); /* Для остальных браузеров */
+}
+
+@font-face {
+  font-family: italic; /* Гарнитура шрифта */
+  src: local(italic), url(../../fonts/Geometria-Italic.otf); /* Для остальных браузеров */
+}

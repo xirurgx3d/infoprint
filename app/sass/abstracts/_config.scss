@@ -1,0 +1,75 @@
+// -----------------------------------------------------------------------------
+//  Базовые настройки, связанные с base
+// -----------------------------------------------------------------------------
+
+// @ НАСТРОЙКИ BODY
+// --- цвета
+$background-base-color:#fff;
+$base-color:#080c1a;
+
+// -- шрифт
+$base-font: 'geometria';   //'Open Sans', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+$base-font-size:16px;
+$base-lineheigh:1.4;
+
+
+// @ ССЫЛКИ
+$brand-color:#bf222e;
+$brand-color-hover:#bf222e;
+// --
+$brand-font-size:14px;
+$brand-font:'geometria';  //'Open Sans', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+$brand-underline:'';
+
+
+// @ Типография
+$paragraf-color:#000; // тег p
+$strong-color:#000; // тег strong
+
+// @ кнопки в миксине button
+$button-widh:150px; // дефолтная длина кнопки
+$button-heading:50px; // дефолтная ширина и line-height
+$button-font:$base-font; // шрифт
+$button-border:none;// none / 1px sold #fff
+$button-radius:none; // none  / @include border-radius(5px);
+
+// переменные для создания кнопки цвета button-colors
+/*
+$black-buut:(
+
+    color: #fff,
+    background-color:#000,
+    'hover':(     @@@@@   ховер не обезателен
+        color: #000,
+        background-color:#943,
+    ),
+);
+
+*/
+// цвет кнопки
+$black-buut:(
+
+    color: #fff,
+    background-color:#000,
+    'hover':(
+        color: #000,
+        background-color:#943,
+    ),
+);
+
+
+
+/// Container's maximum width
+/// @type Length
+$max-width: 1440px !default;
+
+
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+$breakpoints: (
+        'small': 420px,
+        'medium': 768px,
+        'large': 1024px,
+) !default;

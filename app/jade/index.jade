@@ -1,0 +1,47 @@
+include source/config
+doctype html
+html(lang="en")
+  head
+    include source/head
+  body
+    .container
+      nav
+        .menu
+          ul.bord
+            li: a(href="#", title="title").class text
+            li: a(href="#", title="title").class text2
+            li: a(href="#", title="title").class text2
+            li: a(href="#", title="title").class text2
+              
+
+      .codex3ds
+        p.
+          Положение в ряд(горизонталь), картинка с права обтекает текст,
+          респонсив - все становится по центру
+        p  @ $mrg - марджин с права, при активном $respon становится снизу;
+        p  @ $aligin - align-self в положении auto;
+        p @ $wrap - флекс положение "nowrap";
+        p @ $respon - условие @if по респонсиву;
+        pre @include media_colm($mrg:@,$aligin:@,$wrap:@,$respon:@);
+        pre @include media_row($widh:"",$align:center);
+        p jade  - colm или row
+        pre.
+          - var media1 = {title:"title2",url:"com.html",img:"img/insta.png"};
+          +media('colm',media1)
+            p block
+        +media('colm',media1)
+      .codex3ds
+        p кноки @button - дефолтный набор параметров @button-colors - цвета кнопки
+        pre.
+          .button{
+            @include button((
+                font-size:28px,
+            ));
+            @include button-colors($black-buut);
+          }  
+        
+          
+
+
+    
+

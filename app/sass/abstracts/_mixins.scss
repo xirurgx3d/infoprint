@@ -1,0 +1,68 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+/// Make a context based selector a little more friendly
+/// @author Hugo Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
+
+// flexbox
+@mixin flex($j:flex-start,$w:nowrap,$a:flex-start,$dir:row){
+  @include display-flex;
+  @include justify-content($j);
+  @include flex-wrap($w);
+  @include align-items($a);
+  @include flex-direction($dir);
+}
+// flexbox шаблоны
+@mixin between{
+  @include flex(space-between);
+}
+@mixin flexbild($var){
+  @if($var=='wrap'){
+    @include flex(space-between,wrap,center);
+  }
+  @if($var=='center'){
+    @include flex(center,nowrap,center,column);
+  }
+}
+

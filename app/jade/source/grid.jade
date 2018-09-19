@@ -1,0 +1,27 @@
+
+
+
+mixin grids(theme,gridParam)
+      .grid
+         each item, index in gridParam
+            div(class="grid_#{theme}")
+                  .grid_img
+                     img(src="#{item.img}")
+                  .grid_content
+                     if item.url
+                        a(href="#{item.url}").title=item.title
+                     else
+                        span.title=item.title
+                     p=item.content
+
+mixin media(theme,mediaParam)
+   div(class="media_#{theme}")&attributes(attributes)
+      .media_img
+        img(src="#{mediaParam.img}")
+      if mediaParam.url
+         a(href="#{mediaParam.url}").media_body=mediaParam.title
+      else if mediaParam.title 
+         .media_body=mediaParam.title       
+      else
+         .media_body
+            block

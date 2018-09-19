@@ -1,0 +1,10 @@
+mixin menu_head(items)
+   //- var items = { 'О компании': 'contact.html' }
+
+   nav&attributes(attributes)
+      .container
+         .menu
+            ul
+               each val, key in items
+                  li
+                     a(href="#{val}")=key
