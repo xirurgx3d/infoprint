@@ -1,0 +1,107 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+.footer{
+	background: url("#{$base-url}img/fot.jpg") right no-repeat;
+	background-color: $c1;
+	.contact{
+		float: left;
+		width: 35%;
+		color: #fff;
+		padding-top: 40px;
+		padding-bottom: 40px;
+		padding-left: 10px;
+		background-color: $c1;
+		.c_title{
+			font-size: 40px;
+			margin-bottom: 20px;
+			text-transform: uppercase;
+		}
+		.c_adress{
+			span{font-size: 31px; }
+			p{font-size: 23px;margin-top: 15px}
+			.socmedia{
+				float: none;
+				margin-top: 50px;
+				margin-left: 10px;
+			}
+
+		}
+		@include respond-to(large){
+			float: none;
+			width: 100%;
+			padding-right: 5%;
+		}
+		@include respond-to(small){
+			padding-right: 5px;
+			.c_title{
+				font-size: 24px;
+			}
+			.c_adress,p{
+				font-size: 16px;
+			}
+		}
+	}
+
+	.footside{
+		width: 65%;
+		padding: 0 5%;
+		display: inline-block;
+		padding-top: 50px;
+		padding-bottom:5px;
+		color: #fff;
+		text-transform: uppercase;
+
+			.txt1{
+				font-size: 46px;
+				text-align: center;
+				line-height: 1.2;
+				@include text-shadow(#000 2px 5px 7px);
+			}
+			.txt2{
+				font-size: 42px;
+				font-family: $bold;
+				text-align: center;
+				margin-top: 20px;
+				@include text-shadow(#000 2px 5px 7px);
+			}
+
+			.button{
+				line-height: 1;
+				height: auto;
+				width: 55%;
+				padding:7px ;
+				margin:0 auto;
+				margin-top: 45px;
+			}
+		@include respond-to(verylarge){
+			padding:50px 1% 5px 1%;
+		}
+		@include respond-to(large){
+			background: url("#{$base-url}img/fot.jpg") right no-repeat;
+			width: 100%;
+			.button{
+				width: 320px;
+			}
+		}
+		@include respond-to(medium){
+			padding-top: 5%;
+			.txt1{font-size: 32px}
+			.txt2{font-size: 28px}
+		}
+		@include respond-to(verysmall){
+			.txt1{font-size: 24px}
+			.txt2{font-size: 18px}
+			.button{
+				width: 280px;
+				font-size: 18px;
+				margin-bottom: 10px;
+			}
+		}
+
+	}
+	@include respond-to(large){
+		background: none;
+	}
+
+}

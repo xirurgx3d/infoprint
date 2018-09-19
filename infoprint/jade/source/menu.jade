@@ -1,0 +1,13 @@
+mixin menu_head(items)
+   //- var items = { 'О компании': 'contact.html' }
+    .container
+        .menu
+            ul
+               each val, key in items
+                  li
+                     a(href="#{val}")=key
+        
+         
+        form(action="").serch
+                input(type="text", value="",placeholder="").text
+                input(type="submit", value="").subb   

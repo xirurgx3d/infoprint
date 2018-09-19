@@ -1,0 +1,320 @@
+.head_bg{
+    background:  url("#{$base-url}img/bg1.jpg") repeat-y;
+}
+.head{
+    padding-top: 15px;
+    @include respond-to(midle){
+        @include flexbild(center);
+    }
+
+}
+.h_box1{
+    @include span(6);
+    .logo{
+        @include span(3 of 6);
+        img{
+            display: block;
+
+        }
+    }
+    .site_title{
+        @include span(3 of 6 no-gutter);
+        padding-top: 30px;
+        font-family:$bold;
+        text-transform: uppercase;
+    }
+    @include respond-to(large){
+        margin-bottom: 5px;
+        .logo,.site_title{
+            @include span(6 no-gutter);
+        }
+        .site_title{
+            padding-top: 10px;
+            width: 100%;
+        }
+
+    }
+    @include respond-to(midle){
+        width:100%;
+        .logo,.site_title{
+            display:inline-block;
+            img{display: inline}
+            width: 100%;
+            text-align: center ;
+        }
+    }
+}
+.socmedia{
+    width:auto;
+    float: right;
+    margin-top: 25px;
+    a{
+        display: inline-block;
+        margin-right: 25px;
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+}
+
+.h_box2{
+    @include span(last 6);
+
+    .head_adress{
+        margin-top: 10px;
+        line-height: 1.2;
+        @include span(last 3 of 6);
+        text-align: right;
+        span{font-size: 22px}
+        p{font-size: 16px;margin-top: 0px;}
+    }
+    @include respond-to(large){
+        text-align: right;
+        vertical-align: middle;
+        margin-bottom: 5px;
+        padding-right: 2%;
+        .socmedia,.head_adress{
+            display: block;
+            float: none;
+            width: 100%;
+        }
+        .head_adress{
+            padding-left: 15%;
+        }
+    }
+    @include respond-to(midle){
+        width: 100%;
+        text-align: center;
+        .head_adress{
+            padding-left: 0;
+            width: 60%;
+        }
+        .socmedia,.head_adress{
+            display: inline-block;
+            text-align: center;
+        }
+    }
+    @include respond-to(verysmall){
+        .head_adress{
+            width: 100%;
+            padding:0 10px;
+        }
+    }
+}
+
+
+.headmenu{
+    height: 50px;
+    padding: 5px 0;
+    background-color:rgba(87,68,66,0.8);
+    position: relative;
+}
+.menu{
+    display: inline-block;
+    width:50%;
+    float: left;
+    @include pre(3);
+
+    ul{
+        @extend %list;
+        @include flex;
+        li{
+            width:auto;
+            padding:0 12px;
+            @include after(){
+                background-color:#fff;
+                width: 2px;
+                height: 18px;
+                right: 0;
+                top:13px;
+            }
+            &:last-child{
+                &:after{display: none;}
+            }
+            &:first-child{padding-left: 0}
+
+
+
+
+            a{
+                display: block;
+                color: #fff;
+                font-size: 20px;
+                height: 42px;
+                line-height: 42px;
+                padding: 0 11px;
+                text-transform: uppercase;
+
+                @include on-event(){
+                    background-color:#ff7e00;
+                    @include box-shadow(#000 1px 1px 5px inset);
+                    a{
+                        color: $def;
+
+                    }
+                }
+                @include respond-to(large){
+                    font-size: 16px;
+                }
+            }
+
+
+        }
+    }
+    @include respond-to(verylarge){
+        margin-left: 0;
+        width: 70%;
+    }
+    @include respond-to(medium){
+        display: none
+    }
+}
+
+.menu-toggle {
+    position: absolute;
+    padding: 0.8em;
+    top: 1em;
+    right: .5em;
+    cursor: pointer;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    display: block;
+    background: #EBEBD3;
+    height: 3px;
+    width: 2em;
+    border-radius: 3px;
+    -webkit-transition: all ease-in-out 350ms;
+    transition: all ease-in-out 350ms;
+}
+
+.hamburger::before {
+    -webkit-transform: translateY(-7px);
+    transform: translateY(-7px);
+}
+
+.hamburger::after {
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+}
+
+.open .hamburger {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.open .hamburger::before {
+    display: none;
+}
+
+.open .hamburger::after {
+    -webkit-transform: translateY(-1px) rotate(-90deg);
+    transform: translateY(-1px) rotate(-90deg);
+}
+
+
+.serch{
+    float: right;
+    border: 2px solid #3a3534;
+    border-radius: 10px;
+    background-color: #fff;
+    width:22%;
+    padding: 5px;
+    margin-top: 5px;
+    @include box-shadow(#b9b5b2 1px 1px 10px inset);
+    @include flex();
+    border: none;
+        .text{
+            display: block;
+            border: none;
+            width: 88%;
+            padding-left: 5px;
+        }
+        .subb{
+            display: block;
+            background:  url("#{$base-url}img/serch.png") no-repeat;
+            border: none;
+            width: 19px;
+            height: 21px;
+            cursor: pointer;
+
+        }
+    @include respond-to(medium){
+        width: 45%;
+    }
+    @include respond-to(small){
+        width: 60%;
+    }
+}
+
+
+.h-dark_bg{
+    background-color: rgba(0,0,0,0.5);
+}
+.header_box{
+    padding-top: 75px;
+    padding-bottom: 25px;
+    @include squish(1,1);
+    width: span(10);
+    @include flex(center,nowrap,center,column);
+    .txlow,.tx2how{
+        color: #fff;
+        display: block;
+        text-transform: uppercase;
+    }
+    .txlow{
+        font-size: 38px;
+
+    }
+    .tx2how{
+        display:block;
+        width: 100%;
+        font-size: 60px;
+        margin-top: 40px;
+        margin-bottom: 50px;
+    }
+    .h_grids{
+        width: 100%;
+        margin-top: 30px;
+        margin-bottom: 65px;
+        @include between;
+        .grid_media{
+            @include flex;
+            .title{
+                display: block;
+                margin-top: 31px;
+                margin-left: 15px;
+                color: #fff;
+                font-size: 28px;
+            }
+        }
+    }
+
+    @include respond-to(large){
+        padding-top: 5%;
+        margin: 0;
+        width: 100%;
+        .h_grids{
+            padding: 0 1%;
+        }
+        .txlow{font-size: 26px}
+        .tx2how{font-size: 38px}
+    }
+    @include respond-to(medium){
+        @include flexbild(center);
+        .h_grids{
+            width: auto;
+            @include flex(center,wrap,flex-start,column);
+            .grid_media{
+                margin-bottom: 10px;
+            }
+        }
+    }
+    @include respond-to(medium){
+        .txlow{font-size: 22px}
+        .tx2how{font-size: 26px}
+    }
+}

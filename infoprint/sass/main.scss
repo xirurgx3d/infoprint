@@ -1,0 +1,75 @@
+@import "susy";
+
+$susy: (
+        columns: 12,
+        gutters: .25,
+        math: fluid,
+        output: float,
+        gutter-position: after,
+        debug: (
+                image: hide,
+                color: rgba(#66f, .25),  
+                output: background,
+                toggle: top right,
+        )
+);
+
+//@import '../../node_modules/susy/sass/susy/language/susy';
+@import "compass/css3";
+@import "compass/css3/font-face";
+
+
+// 1. Configuration and helpers
+@import
+'abstracts/config',
+'abstracts/variables',
+'abstracts/functions',
+'abstracts/mixins';
+
+// 2. Vendors
+@import
+'vendor/normalize';
+
+// 3. Base stuff
+@import
+'base/base',
+'base/fonts',
+'base/typography',
+'base/helpers';
+
+// 4. Layout-related sections
+@import
+'layout/header',
+'layout/footer';
+
+// 5. Components
+@import
+'components/button';
+
+// 6. Page-specific styles
+@import
+'pages/home',
+'pages/pages';
+// 7. Themes
+@import
+'themes/default';
+
+
+/*
+$susy: (
+        columns: 12,
+        gutters: 1/5,
+        math: fluid,
+        output: float,
+        gutter-position: after,
+        debug: (
+                image: show,
+                color: rgba(#66f, .25),
+                output: background,
+                toggle: top right,
+        )
+);
+*/
+
+
+

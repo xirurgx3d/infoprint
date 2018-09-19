@@ -1,0 +1,177 @@
+include source/config
+doctype html
+html(lang="en")
+  head
+    include source/head
+  body
+      #modal1.modal_div
+        .modal-body
+          .modal-header
+            a.close.modal_close
+          .full_form
+            .full_formcontetn
+              .full_form-title
+                span.defbold Оставьте заявку
+                form(action="mail.php",method="POST")
+                  input(type="text",name="email")
+                  input(type="text",name="name")
+                  input(type="submit",value="Отправить",name="submit").button
+      #overlay
+      .head_bg 
+        .container
+          .head
+            .h_box1
+              a(href="").logo 
+                img(src="img/logo.png")
+              .site_title скорая студенческая помощь
+            .h_box2
+              .head_adress
+                span 8-903841-07-44
+                p г. Серпухов ул. Ворошилова, д. 128, гостиница "Ока", оф. 307, 3 этаж
+              .socmedia
+                - var soc = ['vk','inst','fese'];
+                each item in soc
+                  a(href="")
+                    img(src="img/icon/#{item}.png")
+        .headmenu
+          .container
+            .menu#nav
+                ul
+                  each val, key in menu_head
+                      li
+                        a(href="#{val}")=key
+            
+            form(action="").serch
+                    input(type="text", value="",placeholder="").text
+                    input(type="submit", value="").subb   
+        .h-dark_bg  
+          .container
+            .header_box
+                h3.txlow Работаем по всей РФ
+                h1.tx2how проконсультируем, переведём, составим бизнес-план
+                h3.txlow опыт работы более 12 лет
+
+                .h_grids 
+                  .grid_media
+                    img(src="img/icon/w1.png")
+                    .title Качественно
+                  .grid_media
+                    img(src="img/icon/w2.png")
+                    .title Быстро
+                  .grid_media
+                    img(src="img/icon/w3.png")
+                    .title Результативно
+                a(href="#modal1").button.open_modal оставьте заявку
+      .wrapper#about 
+        .container
+          h2 О нас
+          .about
+            img(src="img/pip.jpg")
+            .about_text
+              .center.bold.titl Kомпания «ИНФОПРИНТ» более 12 лет консультирует студентов по всей России.
+              p.center Что важно знать о работе с нами?
+              ul
+                li.bold Проконсультируем:
+                li - по любому предмету
+                li - на любую тему
+                li - в сжатые сроки 
+              ul
+                li.bold Поможем оформить:
+                li - по ГОСТу
+                li - по требованиям преподавателя
+              p.bold Поможем с проверкой - качество гарантировано!
+              p.bold Мы – дружная команда, которая быстро и в срок поможет выполнить любые задания по любой дисциплине. 
+              ul
+                li - юридические гарантии
+                li - ответственный персонал
+                li - поддержка 24/7
+              br
+              p.bold.titl Грамотная консультация профессионалов - залог успеха!
+      .arcord_bg#diss
+        .container
+          h2 работаем со всеми сферами наук
+          .accordion
+            .accordion-item экономические
+              .type
+            .data 
+              .gridlist
+                ul
+                  each list in list1
+                    li=list
+                ul
+                  each list in list2
+                    li=list
+                ul
+                  each list in list3
+                    li=list 
+            .accordion-item гуманитарные
+              .type
+            .data
+              .gridlist
+                ul
+                  each gum in gum1
+                    li=gum
+                    
+            .accordion-item естественные
+              .type
+            .data
+              .gridlist
+                ul
+                  each est in est1
+                    li=est
+            .accordion-item технические
+              .type
+            .data
+              .gridlist
+                ul
+                  each teh in teh1
+                    li=teh
+                ul
+                  each teh in teh2
+                    li=teh
+
+      .bargrid#work
+        .container
+          h2 с нами просто
+          .b-grids
+            .grid_item.ar1
+              span Заполняете бриф
+            .grid_item.ar2
+              span Ждете звонка менеджера
+            .grid_item.ar1
+              span Вносите предоплату 25%
+            .grid_item
+              span Результат не заставит себя ждать
+      .container
+        .stock 
+          .stockimg
+            img(src="img/stok.jpg")
+          .stock_content
+            .stock-title Акция!
+            .stock-info Приведи друга 
+              br
+              |и получи купон на скидку  
+              span -10%
+            a(href="#modal1").button.open_modal Получить скидку
+          .clearfix
+      .footer#contact
+        .container
+          .contact
+            .c_title Контакты:
+            .c_adress
+              span 8-903841-07-44
+              p г. Серпухов ул. Ворошилова, д. 128, гостиница "Ока", оф. 307, 3 этаж
+              .socmedia
+                - var soc = ['vk','inst','fese'];
+                each item in soc
+                  a(href="")
+                    img(src="img/icon/#{item}.png")
+
+          .footside
+            .txt1 «От сессии до сессии живут студенты весело»
+            .txt2 а с нами еще и беззаботно!
+            a(href="#modal1").button.open_modal оставь заявку и получи персональную скидку
+
+
+
+      include source/footer

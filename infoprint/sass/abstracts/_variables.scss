@@ -1,0 +1,40 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+// -- ������� ��������
+//  background: color('yellow');  color: color('red', 'shade');
+$colors: (
+  'red': (
+    tint: #f66,
+    base: #c00,
+    shade: #a00
+  )
+);
+$def:#25211e;
+$c1:#574442;
+$c2:#ff7e00;
+$bk:#080c1a;
+$rd:#bf222e;
+$hbl:#212e63;
+$lbl:#405ed8;
+
+
+
+//-- ������
+$def-font: 'ptsans';
+$pt:'ptsans';
+$bold: 'boled';
+
+
+
+
+
+
+
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: '../' !default;

@@ -1,0 +1,46 @@
+// -----------------------------------------------------------------------------
+//  ������� ���������, ��������� � base
+// -----------------------------------------------------------------------------
+
+// @ ��������� BODY
+// --- �����
+$background-base-color:#fff;
+$base-color:#25211e;
+
+// -- �����
+$base-font: 'ptsans';   //'Open Sans', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+$base-font-size:18px;
+$base-lineheigh:1.4;
+
+
+// @ ������
+$brand-color:#bf222e;
+$brand-color-hover:#bf222e;
+// --
+$brand-font-size:14px;
+$brand-font:'ptsans';  //'Open Sans', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+$brand-underline:'';
+
+
+// @ ����������
+$paragraf-color:#000;
+$strong-color:#000;
+
+
+/// Container's maximum width
+/// @type Length
+$max-width: 1300px !default;
+
+
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+$breakpoints: (
+        'verysmall': 320px,
+        'small': 480px,
+        'midle': 600px,
+        'medium': 768px,
+        'large': 1024px,
+        'verylarge':1280px
+) !default;

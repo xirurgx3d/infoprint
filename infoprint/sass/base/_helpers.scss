@@ -1,0 +1,298 @@
+// -----------------------------------------------------------------------------
+// This file contains CSS helper classes.
+// -----------------------------------------------------------------------------
+
+/**
+ * Clear inner floats
+ */
+.clearfix::after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+/**
+ * Main content containers
+ * 1. Make the container full-width with a maximum width
+ * 2. Center it in the viewport
+ * 3. Leave some space on the edges, especially valuable on small screens
+ */
+
+/**
+ * Hide text while making it readable for screen readers
+ * 1. Needed in WebKit-based browsers because of an implementation bug;
+ *    See: https://code.google.com/p/chromium/issues/detail?id=457146
+ */
+.hide-text {
+  overflow: hidden;
+  padding: 0; /* 1 */
+  text-indent: 101%;
+  white-space: nowrap;
+}
+
+/**
+ * Hide element while making it readable for screen readers
+ * Shamelessly borrowed from HTML5Boilerplate:
+ * https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L119-L133
+ */
+.visually-hidden { 
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+
+
+
+/*
+IMC - инлайново медийный контент(вертикальные или горизонтальные медиа с контентом)
+
+@imc_row - горизонтальный медиа
+@imc_column - вертикальный медиа
+
+горизонтальный:
+картинка + текст  [] text
+--- блок @.imc_row
+-ширина?
+@.imc_img
+-размер: фиксированный или резиновый
+ var $imc_img-size-width
+ var $imc_img-size-height
+-отступ:
+ var $imc_img-margin
+@imc_content
+-отступ внутрений:
+ var imc_content-padding
+
+два варианта
+1) картинка и много текста, адаптиве картинка убирается или блок становится colum
+2) иконка и мелкий текст, адаптив картинка убирается
+
+
+Вертикальный:
+картинка imc_img
+- размер 100% по центру
+контент редактируемый
+1) по центру
+2) прижатый к левому краю
+
+*/
+
+$imc_img-size-width:auto;
+$imc_img-size-height:auto;
+$imc_img-margin:0;
+
+$imc_content-margin:0;
+$imc_content-padding:0;
+
+
+@function imcCalc($width){
+  @if $width == 100%{@return 100%;}
+  @return 100% - $width;
+}
+
+@function lenghParam($numb,$list){
+  $lenght:length($list);
+  @if $lenght < $numb{
+    $numb: $numb - $lenght;
+    @for $i from 1 through $numb {
+      $list:append($list,'');
+      @return $list;
+    }
+  }
+}
+
+//$params:30%, 10px 0 0 0;
+
+
+@mixin imc_bilder($bild,$params...){
+  $numb: 6;
+  $lenght:length($params);
+  @if $lenght < $numb{
+    $numb: $numb - $lenght;
+    @for $i from 1 through $numb {
+      $params:append($params,'');
+    }
+  }
+
+
+  $imc_base:nth($params,1); // ширина блока
+  $imc_img-margin:nth($params,2); // отступ картинки
+
+  $imc_img-size-width:nth($params,3); //ширина картинки
+  $imc_img-size-height:nth($params,4); // высота  картинки
+
+
+  $imc_content-margin:nth($params,5); // марджин контента
+  $imc_content-padding:nth($params,6); // падинг контента
+
+
+  .imc_#{$bild}{
+    width:$imc_base;
+    @if $bild == 'row'{
+      @include flex;
+    }@else if $bild == 'colum'{
+      @include flexbild(center);
+    }
+
+    .imc_img{
+      margin:$imc_img-margin;
+      width:$imc_img-size-width;
+      height:$imc_img-size-height;
+
+    }
+    .imc_content{
+      width: imcCalc($imc_img-size-width);
+      margin:$imc_content-margin;
+      padding:$imc_content-padding;
+      @content;
+    }
+  }
+
+
+}
+/*
+@include imc_bilder(colum,30%,10px){
+  text-align: center;
+  span{
+    display: block;
+    color: #0000AA;
+    margin: 10px 0;
+  }
+  a{
+    display: block;
+    color: red;
+  }
+};
+*/
+
+// афтер или бефо
+@mixin after($var:after){
+  position: relative;
+  &::#{after}{
+    content: "";
+    display: block;
+    position: absolute;
+    @content;
+  }
+}
+
+
+
+// количество блоков в ряд
+@mixin grid_colums($num:null){
+  .grid{
+    @include flex(space-between,wrap);
+    margin:0;
+    .grid_colum{
+      @if $num == 3{
+        @include span(4);
+        &:nth-child(3n){
+          margin-right: 0;
+        }
+      }@else if($num == 4){
+        @include span(3);
+        &:nth-child(4n){
+          margin-right: 0;
+        }
+      }
+      @content;
+
+    }
+  }
+}
+
+@mixin bild_colum($widh:"",$align:center){
+  .grid_colum{
+    width:$widh;
+    @include flexbild(center);
+    .grid_img{
+      text-align:$align;
+    }
+    .grid_content{
+      @content;
+    }
+  }
+}
+
+
+/**
+    построение шаблона
+    @header название класса и массив из методов
+**/
+$theme:(
+    'header':(
+         padding:10% 0,
+         background: url("#{$base-url}img/main-page-1.jpg") no-repeat,
+    ),
+    'content':(
+        padding:40px 0,
+        margin:0,
+        background: url("") no-repeat
+    ),
+    'lvl':(
+        padding:0,
+        margin:0,
+        background: url("") no-repeat
+    ),
+
+);
+
+
+$titles:(
+    'header':(
+        text-align: center,
+        color: #17248d,
+        border: true
+    ),
+    'content':(
+        padding:40px 0,
+        margin:0,
+        background: url("") no-repeat
+    ),
+    'lvl':(
+        padding:0,
+        margin:0,
+        background: url("") no-repeat
+    ),
+
+);
+
+
+@mixin title($conf: ()){
+  $conf: extend((
+      text-align: center,
+      color: #17248d,
+      border: true
+  ), $conf);
+  .title{
+    text-align: map-get($conf, text-align);
+    span{
+      color: map-get($conf,color);
+      @if map-get($conf,border){
+        border-bottom: 2px solid map-get($conf,color);
+
+      }
+    }
+    @content;
+  }
+}
+// создание шаблона из массива $theme
+@each $element, $style-map in $theme {
+  .#{$element} {
+    @each $property, $value in $style-map {
+      #{$property}: $value;
+      @include title;
+    }
+  }
+}
+
+
+
+
+

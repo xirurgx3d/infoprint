@@ -1,0 +1,17 @@
+// -----------------------------------------------------------------------------
+// This file contains all @font-face declarations, if any.
+// -----------------------------------------------------------------------------
+
+
+//@include font-face("geometria","#{$base-url}fonts/Geometria.otf");
+
+@font-face {
+  font-family: ptsans; /* ��������� ������ */
+  src: local(ptsans), url(../fonts/ptsans.ttf); /* ��� ��������� ��������� */
+}
+
+@font-face {
+  font-family: boled; /* ��������� ������ */
+  src: local(boled), url(../fonts/ptsansbold.ttf); /* ��� ��������� ��������� */
+}
+
